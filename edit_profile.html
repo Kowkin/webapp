@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" ng-app>
 
 <head>
     <meta charset="utf-8">
@@ -41,23 +41,23 @@
                     </div>
                 </div>
 
-                <!--дата-->
-                <div class="control-group">
-                    <label class="control-label">Дата рождения</label>
-
-                    <div class="controls">
-                        <input id="input-date" type="date" value="dd-MM-yyyy" class="input-xlarge">
-
-                        <p class="help-block"></p>
-                    </div>
-                </div>
-
                 <!--вес-->
                 <div class="control-group">
                     <label class="control-label">Вес</label>
 
                     <div class="controls">
                         <input id="number" type="number" class="input-xlarge" placeholder="вес">
+
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+
+                <!--дата-->
+                <div class="control-group">
+                    <label class="control-label">Дата рождения</label>
+
+                    <div class="controls">
+                        <input id="input-date" type="date" value="dd-MM-yyyy" class="input-xlarge">
 
                         <p class="help-block"></p>
                     </div>
@@ -95,7 +95,25 @@
                     </div>
                 </div>
 
-                <!-- переносимость -->
+                <!-- заболевание -->
+                <div class="control-group">
+                    <label class="control-label">Заболевание</label>
+
+                    <div class="controls">
+                        <select id="illness" name="illness" class="input-xlarge">
+                            <option value="" selected="selected">(выберите)</option>
+                            <option value="bel">Сахарный диабет</option>
+                            <option value="ugle">что-то там еще 1</option>
+                            <option value="jiri">что-то там еще 2</option>
+                            <option value="1">что-то там еще 3</option>
+                            <option value="2">что-то там еще 4</option>
+                            <option value="3">что-то там еще 5</option>
+                        </select>
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+
+                <!-- переносимость limit -->
                 <div class="control-group">
                     <label class="control-label">Переносимость лимит</label>
 
@@ -119,11 +137,11 @@
     </div>
 </div>
 
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-<script type="text/javascript" src="js/moment-with-locales.min.js"></script>
-<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<!--base js-->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<!--plugins-->
 </body>
 
 </html>
