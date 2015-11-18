@@ -1,0 +1,31 @@
+<div class="container">
+    <form class="form-center-singin" role="form" ng-controller="SingInCtrl1">
+        <h2>Авторизация</h2>
+
+        <!--input name-->
+        <div class="form-group">
+            <label for="inputEmail" class="sr-only">Email</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="" ng-model="formInfo.Name">
+        </div>
+
+        <!--input pass-->
+        <div class="form-group">
+            <label for="inputPassword" class="sr-only">Пароль</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required=""  ng-model="formInfo.Pass">
+        </div>
+
+        <!--remember-->
+        <div class="form-group">
+            <div class="checkbox xs-btn-link">
+                <label>
+                    <input type="checkbox" value="remember-me" ng-model="formInfo.Remember"> Запомнить меня
+                </label>
+                <a href="" class="btn-link pull-right">Забыли пароль?</a>
+                <a href="" class="btn-link pull-right">Зарегистрироваться</a>
+            </div>
+        </div>
+
+        <!--SUBMIT-->
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="saveData()">Войти</button>
+    </form>
+</div>
