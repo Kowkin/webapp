@@ -12,12 +12,12 @@ webApp.config(['$routeProvider', function($routeProvider){
             templateUrl: '/view/singin.html',
             controller: 'SingInCtrl',
         })
-        .when('#/edit-profile', {
+        .when('/edit-profile', {
             templateUrl: 'view/edit-profile.html',
             controller: 'ProfileCtrl',
         })
-        .when('#/edit_menu', {
-            templateUrl: 'view/edit_menu.html',
+        .when('/edit-menu', {
+            templateUrl: 'view/edit-menu.html',
             controller: 'MenuListCtrl',
         })
         .otherwise({
