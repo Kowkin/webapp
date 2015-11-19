@@ -25,6 +25,25 @@ webApp.config(['$routeProvider', function($routeProvider){
         })
 }]);
 
+angular.module('webApp.auth', ['ui.router'])
+webApp.config(['$stateProvider', '$urlRouterProvider',
+    function ($stateProvider, $urlRouterProvider) {
+
+        $stateProvider
+            .state('auth', {
+                url: '/',
+                abstract: true,
+                template: '<ui-view>'
+            })
+
+            .state('auth.login', {
+                url: '/login',
+                templateUrl: '/view/singin.html',
+                data: {
+                    'noLogin': true
+                }
+            });
+        ]);
 //CONTROLLERS
 
 webApp.controller('DishListCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
