@@ -9,7 +9,7 @@
                     <label class="control-label">Имя</label>
 
                     <div class="controls">
-                        <input id="first-name" name="first-name" type="text" placeholder="имя" class="input-xlarge">
+                        <input id="first-name" name="first-name" type="text" placeholder="имя" class="input-xlarge" ng-model="formInfo.name">
 
                         <p class="help-block"></p>
                     </div>
@@ -20,7 +20,7 @@
                     <label class="control-label">Фамилия</label>
 
                     <div class="controls">
-                        <input id="last-name" name="last-name" type="text" placeholder="фамилия" class="input-xlarge">
+                        <input id="last-name" name="last-name" type="text" placeholder="фамилия" class="input-xlarge" ng-model="formInfo.lastname">
                         <p class="help-block"></p>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <label class="control-label">Вес</label>
 
                     <div class="controls">
-                        <input id="number" type="number" class="input-xlarge" placeholder="вес">
+                        <input id="weight" type="number" class="input-xlarge" placeholder="вес" ng-model="formInfo.weight">
 
                         <p class="help-block"></p>
                     </div>
@@ -41,7 +41,7 @@
                     <label class="control-label">Дата рождения</label>
 
                     <div class="controls">
-                        <input id="input-date" type="date" value="dd-MM-yyyy" class="input-xlarge">
+                        <input id="input-date" type="date" class="input-xlarge" ng-model="formInfo.date">
 
                         <p class="help-block"></p>
                     </div>
@@ -49,13 +49,13 @@
 
                 <!-- пол -->
                 <div class="control-group">
-                    <label class="control-label" for="selectbasic">Пол</label>
+                    <label class="control-label" for="gender">Пол</label>
 
                     <div class="controls">
-                        <select id="selectbasic" name="selectbasic" class="input-xlarge">
-                            <option>(выбрать)</option>
-                            <option>Мужчина</option>
-                            <option>Женщина</option>
+                        <select id="gender" name="selectbasic" class="input-xlarge" ng-model="formInfo.gender">
+                            <option value="" selected="selected">(выбрать)</option>
+                            <option value="Мужчина">Мужчина</option>
+                            <option value="Женщина">Женщина</option>
                         </select>
                         <p class="help-block"></p>
                     </div>
@@ -66,10 +66,10 @@
                     <label class="control-label">Переносимость</label>
 
                     <div class="controls">
-                        <select id="intolerance" name="intolerance" class="input-xlarge">
+                        <select id="intolerance" name="intolerance" class="input-xlarge" ng-model="formInfo.intolerance">
                             <option value="" selected="selected">(выберите)</option>
                             <option value="bel">Белки</option>
-                            <option value="ugle">Углеводы</option>
+                            <option value="угле">Углеводы</option>
                             <option value="jiri">Жири</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -84,10 +84,10 @@
                     <label class="control-label">Заболевание</label>
 
                     <div class="controls">
-                        <select id="illness" name="illness" class="input-xlarge">
+                        <select id="illness" name="illness" class="input-xlarge" ng-model="formInfo.illness" >
                             <option value="" selected="selected">(выберите)</option>
-                            <option value="bel">Сахарный диабет</option>
-                            <option value="ugle">что-то там еще 1</option>
+                            <option value="bel" ng-repeat="ill in illnes">{{ill.name}}</option>
+                            <option value="ugle"></option>
                             <option value="jiri">что-то там еще 2</option>
                             <option value="1">что-то там еще 3</option>
                             <option value="2">что-то там еще 4</option>
@@ -97,12 +97,30 @@
                     </div>
                 </div>
 
+                <!-- заболевание -->
+                <div class="control-group">
+                    <label class="control-label">Заболевание</label>
+
+                    <div class="controls">
+                        <select class="input-xlarge" ng-model="filterCondition.ill">
+                            <option ng-selected="{{ill.value == filterCondition.ill}}"
+                                    ng-repeat="ill in illnes"
+                                    value="{{ill.value}}">
+                                {{operator.displayName}}
+                            </option>
+                        </select>
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+
+
+
                 <!-- переносимость limit -->
                 <div class="control-group">
                     <label class="control-label">Переносимость лимит</label>
 
                     <div class="controls">
-                        <input id="weight" type="number" class="input-xlarge" placeholder="лимит в граммах">
+                        <input id="weight" type="number" class="input-xlarge" placeholder="лимит в граммах" ng-model="formInfo.limit">
 
                         <p class="help-block"></p>
                     </div>
@@ -113,7 +131,7 @@
                     <label class="col-md-4 control-label" for="singlebutton"></label>
 
                     <div class="col-md-12">
-                        <button id="singlebutton" name="singlebutton" class="btn btn-primary input-xlarge">submit</button>
+                        <button id="singlebutton" name="singlebutton" class="btn btn-primary input-xlarge" ng-click="saveDate()">submit</button>
                     </div>
                 </div>
             </fieldset>

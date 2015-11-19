@@ -32,6 +32,9 @@ webApp.controller('DishListCtrl',['$scope','$http', '$location', function($scope
     $http.get('dish/dish.json').success(function(data, status, headers, config) {
         $scope.dish = data;
     });
+    $http.get('dara/illnes.json').success(function(data, status, headers, config) {
+        $scope.illnes = data;
+    });
 
 }]);
 
@@ -54,7 +57,10 @@ webApp.controller('SingInCtrl',['$scope', '$http', '$location', function($scope,
 
 //ProfileCtrl
 webApp.controller('ProfileCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
+    $scope.formInfo = {};
+    $scope.saveData = function(){
 
+    }
 }]);
 
 
