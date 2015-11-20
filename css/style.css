@@ -32,7 +32,7 @@
   width: 25%;
   margin: 0 auto;
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   margin: 0 0 0 -12.5%;
 }
@@ -43,12 +43,12 @@
 
 @media (max-width: 768px) {
   .form-center-prof {
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     position: absolute;
     top: 10%;
     left: 50%;
-    margin: 0 0 0 -25%;
+    margin: 0 0 0 -35%;
   }
   .input-xlarge {
     width: 100%;

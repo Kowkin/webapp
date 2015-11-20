@@ -10,15 +10,19 @@ webApp.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/', {
             templateUrl: '/view/singin.html',
-            controller: 'SingInCtrl',
+            controller: 'SingInCtrl'
+        })
+        .when('/singup', {
+            templateUrl: '/view/singup.html',
+            controller: 'SingUpCtrl'
         })
         .when('/edit-profile', {
             templateUrl: 'view/edit-profile.html',
-            controller: 'ProfileCtrl',
+            controller: 'ProfileCtrl'
         })
         .when('/edit-menu', {
             templateUrl: 'view/edit-menu.html',
-            controller: 'MenuListCtrl',
+            controller: 'MenuListCtrl'
         })
         .otherwise({
             redirectTo: '/'
@@ -32,10 +36,6 @@ webApp.controller('DishListCtrl',['$scope','$http', '$location', function($scope
     $http.get('dish/dish.json').success(function(data, status, headers, config) {
         $scope.dish = data;
     });
-    $http.get('dara/illnes.json').success(function(data, status, headers, config) {
-        $scope.illnes = data;
-    });
-
 }]);
 
 
@@ -54,13 +54,14 @@ webApp.controller('SingInCtrl',['$scope', '$http', '$location', function($scope,
     };
 }]);
 
+webApp.controller('SinUpCtrl', ['$scope'])
+
 
 //ProfileCtrl
 webApp.controller('ProfileCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
-    $scope.formInfo = {};
-    $scope.saveData = function(){
-
-    }
+    $http.get('data/illness.json').success(function(data, status, headers, config) {
+        $scope.illness = data;
+    });
 }]);
 
 
