@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <form class="form-center-singin" role="form" ng-controller="SingInCtrl">
-            <h2>Авторизация</h2>
+            <h2 class="center">Авторизация</h2>
 
             <!--input name-->
             <div class="form-group">
@@ -15,20 +15,12 @@
                 <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required="">
             </div>
 
-            <!--remember-->
-            <div class="form-group">
-                <div class="checkbox xs-btn-link">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Запомнить меня
-                    </label>
-                    <a href="" class="btn-link pull-right">Забыли пароль?</a>
-                    <a href="" class="btn-link pull-right">Зарегистрироваться</a>
-                </div>
-            </div>
-
             <!--SUBMIT-->
-            <button class="btn btn-lg btn-primary btn-block" type="submit"
-            ">Войти</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+            <p class="help-block"></p>
+            <div class="center">
+                Don't have an account? <a href="#/signup">Signup</a>
+            </div>
         </form>
     </div>
 </div>
