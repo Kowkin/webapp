@@ -39,6 +39,7 @@
                 <!--дата-->
                 <div class="control-group">
                     <label for="input-date" class="control-label">Дата рождения</label>
+
                     <div class="controls">
                         <input id="input-date" type="date" class="input-xlarge" ng-model="formInfo.date">
 
@@ -48,7 +49,7 @@
 
                 <!-- пол -->
                 <div class="control-group">
-                    <label for="gender" class="control-label" for="gender">Пол</label>
+                    <label for="gender" class="control-label">Пол</label>
 
                     <div class="controls">
                         <select id="gender" name="selectbasic" class="input-xlarge" ng-model="formInfo.gender">
@@ -66,6 +67,7 @@
 
                     <div class="controls">
                         <select id="illness" class="input-xlarge">
+                            <option value="" selected="selected">(выбрать)</option>
                             <option ng-repeat="ill in illness" value="{{ill.name}}" >{{ill.name}}</option>
                         </select>
                         <p class="help-block"></p>
@@ -86,10 +88,10 @@
 
                 <!-- отправить -->
                 <div class="form-group">
-                    <label for="singlebutton" class="col-md-4 control-label" for="singlebutton"></label>
+                    <label for="singlebutton" class="col-md-4 control-label"></label>
 
                     <div class="col-md-12">
-                        <button id="singlebutton" name="singlebutton" class="btn btn-primary input-xlarge" ng-click="saveDate()">submit</button>
+                        <button id="singlebutton" name="singlebutton" class="btn btn-primary input-xlarge">submit</button>
                     </div>
                 </div>
             </fieldset>
