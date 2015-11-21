@@ -12,6 +12,11 @@ webApp.config(['$routeProvider', function($routeProvider){
             templateUrl: '/view/singin.html',
             controller: 'SingInCtrl'
         })
+        .when('/login', {
+            title: 'Login',
+            templateUrl: 'partials/login.html',
+            controller: 'authCtrl'
+        })
         .when('/singup', {
             templateUrl: '/view/singup.html',
             controller: 'SingUpCtrl'
@@ -31,39 +36,17 @@ webApp.config(['$routeProvider', function($routeProvider){
 
 //CONTROLLERS
 
-webApp.controller('DishListCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
-
-    $http.get('dish/dish.json').success(function(data, status, headers, config) {
-        $scope.dish = data;
-    });
-}]);
-
-
 //SingInCtrl
 webApp.controller('SingInCtrl',['$scope', '$http', '$location', function($scope, $rootScope, $http, $location, AUTH_EVENTS, AuthService) {
-    $scope.credentials = {
-        username: '',
-        password: ''
-    };
-    $scope.login = function (credentials) {
-        AuthService.login(credentials).then(function () {
-            $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
-        }, function () {
-            $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
-        });
-    };
+
 }]);
-
-webApp.controller('SinUpCtrl', ['$scope'])
-
 
 //ProfileCtrl
 webApp.controller('ProfileCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
-    $http.get('data/illness.json').success(function(data, status, headers, config) {
+    $http.get('data/illness.json').success(function(data) {
         $scope.illness = data;
     });
 }]);
-
 
 //menuListCtrl
 webApp.controller('MenuListCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
