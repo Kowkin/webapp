@@ -1,26 +1,27 @@
 <div class="container">
     <div class="row">
-        <form class="form-center-singin" role="form" ng-controller="SingInCtrl">
+        <form class="form-center-singin" name="loginForm" role="form" ng-controller="SingInCtrl">
             <h2 class="center">Авторизация</h2>
 
             <!--input name-->
             <div class="form-group">
                 <label for="inputEmail" class="sr-only">Email</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="" ng-model="login.email">
             </div>
 
             <!--input pass-->
             <div class="form-group">
                 <label for="inputPassword" class="sr-only">Пароль</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required="">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required="" ng-model="login.password">
             </div>
 
             <!--SUBMIT-->
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" data-ng-disabled="loginForm.$invalid" ng-click="doLogin(login)">Войти</button>
             <p class="help-block"></p>
             <div class="center">
                 Don't have an account? <a href="#/signup">Signup</a>
             </div>
+            <span>{{login}}</span>
         </form>
     </div>
 </div>

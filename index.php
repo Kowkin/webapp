@@ -7,22 +7,29 @@
     <title></title>
     <!-- Bootstrap -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/toaster.css" rel="stylesheet">
 </head>
-<body>
+<body ng-cloak="">
 
-<ng-view>
-</ng-view>
+ <div >
+      <div class="container" style="margin-top:20px;">
 
-<!--Bootstrap-->
+        <div data-ng-view="" id="ng-view" class="slide-animation"></div>
+
+      </div>
+    </body>
+  <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+
+
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<!--Angularjs-->
+
 <script src="js/angular/angular.min.js"></script>
 <script src="js/angular/angular-route.min.js"></script>
 <script src="js/angular/angular-animate.min.js"></script>
-<!--APP-->
+
 <script src="js/app/controllers.js"></script>
-<!--plugins-->
+
 <script src="js/toaster.js"></script>
 <script src="js/app/data.js"></script>
 <script src="js/app/directives.js"></script>

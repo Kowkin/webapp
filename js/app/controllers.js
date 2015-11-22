@@ -15,13 +15,13 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'view/login.html',
             controller: 'logoutCtrl'
         })
+        .when('/edit-profile', {
+            templateUrl: 'view/edit-profile.html',
+            controller: 'authCtrl'
+        })
         .when('/singup', {
             title: 'Signup',
             templateUrl: 'view/signup.html',
-            controller: 'authCtrl'
-        })
-        .when('/edit-profile', {
-            templateUrl: 'view/edit-profile.html',
             controller: 'authCtrl'
         })
         .when('/edit-menu', {
@@ -92,6 +92,16 @@ app.controller('authCtrl', function ($scope, $rootScope, $routeParams, $location
             }
         });
     };
+    $scope.logout = function () {
+        Data.get('logout').then(function (results) {
+            Data.toast(results);
+            $location.path('login');
+        });
+    }
+});
+
+app.controller('logoutCtrl', function ($scope, $rootScope, $routeParams, $location, $http, Data) {
+    $scope.expr = variables;
     $scope.logout = function () {
         Data.get('logout').then(function (results) {
             Data.toast(results);

@@ -13,6 +13,10 @@
   margin: 0 10px 10px 10px;
 }
 
+/* ng-cloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng.ng-cloak {
+  display: none;
+}
 /* Small devices (tablets, 768px and up) */
 
 @media (max-width: 768px) {
