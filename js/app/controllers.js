@@ -1,9 +1,9 @@
 'use strict';
 
 /* Controllers */
-var webApp = angular.module('webApp', ['ngRoute', 'ngAnimate', 'toaster']);
+var app = angular.module('app', ['ngRoute', 'ngAnimate', 'toaster']);
 
-webApp.config(['$routeProvider', function($routeProvider){
+app.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when('/login', {
             title: 'Login',
@@ -15,7 +15,7 @@ webApp.config(['$routeProvider', function($routeProvider){
             templateUrl: 'view/login.html',
             controller: 'logoutCtrl'
         })
-        .when('/signup', {
+        .when('/singup', {
             title: 'Signup',
             templateUrl: 'view/signup.html',
             controller: 'authCtrl'
@@ -37,17 +37,37 @@ webApp.config(['$routeProvider', function($routeProvider){
         .otherwise({
             redirectTo: '/login'
         })
-}]);
+}])
+    .run(function ($rootScope, $location, Data) {
+        $rootScope.$on("$routeChangeStart", function (event, next, current) {
+            $rootScope.authenticated = false;
+            Data.get('session').then(function (results) {
+                if (results.uid) {
+                    $rootScope.authenticated = true;
+                    $rootScope.uid = results.uid;
+                    $rootScope.name = results.name;
+                    $rootScope.email = results.email;
+                } else {
+                    var nextUrl = next.$$route.originalPath;
+                    if (nextUrl == '/signup' || nextUrl == '/login') {
+
+                    } else {
+                        $location.path("/login");
+                    }
+                }
+            });
+        });
+    });
 
 //CONTROLLERS
 
 //SingInCtrl
-webApp.controller('SingInCtrl',['$scope', '$http', '$location', function($scope, $rootScope, $http, $location, AUTH_EVENTS, AuthService) {
+app.controller('SingInCtrl',['$scope', '$http', '$location', function($scope, $rootScope, $http, $location, AUTH_EVENTS, AuthService) {
 
 }]);
 
 //authCtrl
-webApp.controller('authCtrl', function ($scope, $rootScope, $routeParams, $location, $http, Data) {
+app.controller('authCtrl', function ($scope, $rootScope, $routeParams, $location, $http, Data) {
     //initially set those objects to null to avoid undefined error
     $scope.login = {};
     $scope.signup = {};
@@ -80,14 +100,14 @@ webApp.controller('authCtrl', function ($scope, $rootScope, $routeParams, $locat
     }
 });
 
-webApp.controller('authCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
+app.controller('authCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
     $http.get('data/illness.json').success(function(data) {
         $scope.illness = data;
     });
 }]);
 
 //menuListCtrl
-webApp.controller('MenuListCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
+app.controller('MenuListCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
 
 }]);
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <!-- Bootstrap -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<ng-view>
+</ng-view>
+
+<!--Bootstrap-->
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--Angularjs-->
+<script src="js/angular/angular.min.js"></script>
+<script src="js/angular/angular-route.min.js"></script>
+<script src="js/angular/angular-animate.min.js"></script>
+<!--APP-->
+<script src="js/app/controllers.js"></script>
+<!--plugins-->
+<script src="js/toaster.js"></script>
+<script src="js/app/data.js"></script>
+<script src="js/app/directives.js"></script>
+
+</body>
+</html>
