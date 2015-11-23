@@ -15,8 +15,8 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl: 'view/login.html',
             controller: 'logoutCtrl'
         })
-        .when('/edit-profile', {
-            templateUrl: 'view/edit-profile.html',
+        .when('/dashboard', {
+            templateUrl: 'view/dashboard.html',
             controller: 'authCtrl'
         })
         .when('/singup', {
@@ -99,16 +99,16 @@ app.controller('authCtrl', function ($scope, $rootScope, $routeParams, $location
         });
     }
 });
-
-app.controller('logoutCtrl', function ($scope, $rootScope, $routeParams, $location, $http, Data) {
-    $scope.expr = variables;
-    $scope.logout = function () {
-        Data.get('logout').then(function (results) {
-            Data.toast(results);
-            $location.path('login');
-        });
-    }
-});
+//
+//app.controller('logoutCtrl', function ($scope, $rootScope, $routeParams, $location, $http, Data) {
+//    $scope.expr = variables;
+//    $scope.logout = function () {
+//        Data.get('logout').then(function (results) {
+//            Data.toast(results);
+//            $location.path('login');
+//        });
+//    }
+//});
 
 app.controller('authCtrl',['$scope','$http', '$location', function($scope, $http, $location) {
     $http.get('data/illness.json').success(function(data) {

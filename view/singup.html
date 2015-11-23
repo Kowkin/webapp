@@ -4,13 +4,25 @@
             <fieldset>
                 <h2>Ваш профиль</h2>
 
+                <!-- email  -->
+                <div class="control-group">
+                    <label for="email" class="control-label">Имя</label>
+
+                    <div class="controls">
+                        <input id="email" name="email" type="text" placeholder="email" class="input-xlarge"
+                               required="" ng-model="signup.name" focus/>
+
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+
                 <!-- имя-->
                 <div class="control-group">
                     <label for="first-name" class="control-label">Имя</label>
 
                     <div class="controls">
                         <input id="first-name" name="first-name" type="text" placeholder="имя" class="input-xlarge"
-                               required="" ng-model="signup.name">
+                               required="" ng-model="signup.email" focus/>
 
                         <p class="help-block"></p>
                     </div>
@@ -68,7 +80,7 @@
 
                 <!-- пол -->
                 <div class="control-group">
-                    <label for="gender" class="control-label" for="gender">Пол</label>
+                    <label for="gender" class="control-label">Пол</label>
 
                     <div class="controls">
                         <select id="gender" name="selectbasic" class="input-xlarge" ng-model="signup.gender">
@@ -109,10 +121,11 @@
 
                 <!-- submit -->
                 <div class="form-group">
-                    <label for="singlebutton" class="col-md-4 control-label" for="singlebutton"></label>
+                    <label for="singlebutton" class="col-md-4 control-label"></label>
 
                     <div class="col-md-12">
-                        <button id="singlebutton" name="singlebutton" class="btn btn-primary input-xlarge">submit
+                        <button id="singlebutton" name="singlebutton" class="btn btn-primary input-xlarge"
+                                ng-click="signUp(signup)" data-ng-disabled="signupForm.$invalid">Submit
                         </button>
                     </div>
                 </div>
